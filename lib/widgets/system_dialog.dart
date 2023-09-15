@@ -19,18 +19,18 @@ class SystemDialog {
     return Get.generalDialog(
       barrierDismissible: false,
       barrierLabel: 'BarrierLabel',
-      barrierColor: AppTheme().colors!.mainBackground.withOpacity(0.9),
+      barrierColor: AppTheme().colors!.background.withOpacity(0.9),
       pageBuilder: (_, __, ___) {
         return Center(
           child: Container(
             width: Get.width / 1.1,
             height: height ?? 300,
             decoration: BoxDecoration(
-                color: AppTheme().colors!.mainBackground, borderRadius: BorderRadius.circular(30)),
+                color: AppTheme().colors!.background, borderRadius: BorderRadius.circular(30)),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(30),
               child: Scaffold(
-                backgroundColor: AppTheme().colors!.mainBackground,
+                backgroundColor: AppTheme().colors!.background,
                 body: Container(
                   padding: const EdgeInsets.all(5),
                   child: Column(

@@ -22,7 +22,7 @@ class ButtonIconWidget extends StatelessWidget {
     return ElevatedButton(
       style: ButtonStyle(
         minimumSize: MaterialStateProperty.all<Size>(Size(width ?? 50, height ?? 50)),
-          backgroundColor: MaterialStateProperty.all<Color>(AppTheme().colors!.mainBackground),
+          backgroundColor: MaterialStateProperty.all<Color>(AppTheme().colors!.background),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(23),

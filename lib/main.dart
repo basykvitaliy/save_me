@@ -10,6 +10,7 @@ import 'package:save_me/translation/Messages.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'helpers/app_colors.dart';
 import 'helpers/constants.dart';
+import 'dart:ui' as ui;
 
 void main()async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,12 +23,13 @@ void main()async {
   MobileAds.instance.initialize();
 
   /// Set theme
+  Brightness platformBrightness = ui.window.platformBrightness;
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
   var theme = sharedPreferences.getBool(Keys.isDarkTheme);
-  if(theme == null){
+  if(platformBrightness == Brightness.light){
     AppTheme().setTheme(isDark: false);
   }else{
-    AppTheme().setTheme(isDark: theme);
+    AppTheme().setTheme(isDark: true);
   }
 
   runApp(const MyApp());

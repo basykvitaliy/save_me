@@ -35,7 +35,7 @@ class ButtonLoadingWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(30),
               )
             : BoxDecoration(
-                color: AppColors.mainDarkThemeColor,
+                color: AppColors.mainDarkColor,
                 borderRadius: BorderRadius.circular(30),
               ),
         child: AnimatedSize(
@@ -48,16 +48,16 @@ class ButtonLoadingWidget extends StatelessWidget {
                 overlayColor: MaterialStateProperty.all(Colors.transparent),
                 foregroundColor: !isChangeBtn ? MaterialStateProperty.all(AppColors.mainColor) : MaterialStateProperty.all(AppColors.mainColor),
                 textStyle:
-                    isChangeBtn ? MaterialStateProperty.all(AppStyles.regularHeading18) : MaterialStateProperty.all(AppStyles.regularHeading18),
+                    isChangeBtn ? MaterialStateProperty.all(AppStyles.regularBodyWhiteText) : MaterialStateProperty.all(AppStyles.regularBodyWhiteText),
               ),
               onPressed: isDisabledBtn! ? onTap : null,
               child: Text(
                       textButton,
                       style: isChangeBtn
                           ? fontWeight == null
-                              ? AppStyles.regularWhiteHeading18
-                              : AppStyles.regularWhiteHeading18.copyWith(fontWeight: fontWeight)
-                          : AppStyles.regularHeading18,
+                              ? AppStyles.regularBodyWhiteText
+                              : AppStyles.regularBodyWhiteText.copyWith(fontWeight: fontWeight)
+                          : AppStyles.regularBodyWhiteText,
                     ),
             ),
           ),

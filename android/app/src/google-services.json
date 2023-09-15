@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "963957046956",
+    "project_id": "saveme-743c8",
+    "storage_bucket": "saveme-743c8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:963957046956:android:980892de6e0d2b35e72909",
+        "android_client_info": {
+          "package_name": "com.save.me.save_me"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB03OCqbz6latYwYMpivsAq143UxF7fo10"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

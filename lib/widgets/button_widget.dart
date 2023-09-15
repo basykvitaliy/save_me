@@ -20,7 +20,7 @@ class ButtonWidget extends StatelessWidget {
     return ElevatedButton(
       style: ButtonStyle(
         minimumSize: MaterialStateProperty.all<Size>(Size(MediaQuery.of(context).size.width, height ?? 60)),
-          backgroundColor: isDisabledBtn! ? MaterialStateProperty.all<Color>(AppTheme().colors!.mainBackground) : MaterialStateProperty.all<Color>(AppTheme().colors!.mainBackground),
+          backgroundColor: isDisabledBtn! ? MaterialStateProperty.all<Color>(AppTheme().colors!.background) : MaterialStateProperty.all<Color>(AppTheme().colors!.background),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(6),
@@ -28,7 +28,7 @@ class ButtonWidget extends StatelessWidget {
           )
       ),
       onPressed: isDisabledBtn! ? onTap : null,
-      child: Text(title, style: AppStyles.regularWhiteText14,),
+      child: Text(title, style: AppStyles.regularBodyWhiteText,),
     );
   }
 }
