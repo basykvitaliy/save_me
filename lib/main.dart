@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:save_me/routes/app_pages.dart';
+import 'package:save_me/screens/bottom_bar/menu_screen.dart';
 import 'package:save_me/screens/home/home_screen.dart';
 import 'package:save_me/translation/Messages.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -50,7 +51,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
+      home: MenuScreen(),
     );
   }
 }

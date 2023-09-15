@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 
 class MainMenuController extends GetxController with GetTickerProviderStateMixin {
   static MainMenuController get to => Get.find();
@@ -16,6 +17,7 @@ class MainMenuController extends GetxController with GetTickerProviderStateMixin
   void toggleObscure() => isObscure$.value = !_isObscure;
 
   RxBool isPersonProfile = true.obs;
+  final PersistentTabController tabController = PersistentTabController(initialIndex: 0);
 
 
   RxInt selectedIndex = 0.obs;

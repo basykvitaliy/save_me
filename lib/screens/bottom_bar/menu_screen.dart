@@ -1,9 +1,13 @@
-import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:save_me/helpers/app_colors.dart';
+import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
+import 'package:save_me/screens/forum/forum_screen.dart';
 import 'package:save_me/screens/home/home_screen.dart';
+import 'package:save_me/screens/paying/paying_screen.dart';
+import 'package:save_me/screens/profile/profile_screen.dart';
+import 'package:save_me/screens/statistic/statistic_screen.dart';
 
 import 'menu_controller.dart';
 
@@ -18,44 +22,78 @@ class MenuScreen extends GetView<MainMenuController> {
   Widget build(BuildContext context) {
     return WillPopScope(
         onWillPop: controller.onWillPop,
-        child: Obx(
-          () => Scaffold(
-            key: scaffoldKey,
-            resizeToAvoidBottomInset: false,
-            backgroundColor: AppTheme().colors!.background,
-            body: _buildScreens()[controller.selectedIndex.value],
-            floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-            bottomNavigationBar: AnimatedBottomNavigationBar(
-              borderColor: AppColors.secondLightColor.withOpacity(0.3),
-              borderWidth: 3,
-              blurEffect: true,
-              activeColor:Colors.white,
-              inactiveColor: AppTheme().colors!.second,
-              activeIndex:  controller.selectedIndex.value,
-              gapLocation: GapLocation.center,
-              notchSmoothness: NotchSmoothness.softEdge,
-              leftCornerRadius: 10,
-              rightCornerRadius: 10,
-              onTap: (index) async {
-                controller.selectedIndex.value = index;
-              },
-              backgroundColor: AppTheme().colors!.second,
-              elevation: 0, icons: iconList,
-            ),
+        child: PersistentTabView(
+          context,
+          controller: controller.tabController,
+          screens: _buildScreens(),
+          items: _navBarsItems(),
+          confineInSafeArea: true,
+          backgroundColor: Colors.white,
+          handleAndroidBackButtonPress: true,
+          resizeToAvoidBottomInset: true,
+          stateManagement: true,
+          hideNavigationBarWhenKeyboardShows: true,
+          decoration: NavBarDecoration(
+            borderRadius: BorderRadius.circular(10.0),
+            colorBehindNavBar: Colors.white,
           ),
+          popAllScreensOnTapOfSelectedTab: true,
+          popActionScreens: PopActionScreensType.all,
+          itemAnimationProperties: ItemAnimationProperties(
+            duration: Duration(milliseconds: 200),
+            curve: Curves.ease,
+          ),
+          screenTransitionAnimation: ScreenTransitionAnimation(
+            animateTabTransition: true,
+            curve: Curves.ease,
+            duration: Duration(milliseconds: 200),
+          ),
+          navBarStyle: NavBarStyle.style1,
         ));
   }
 }
 
-final iconList = <IconData>[
-  Icons.home,
-  Icons.favorite,
-  Icons.remove_red_eye,
-  Icons.person,
-];
+List<PersistentBottomNavBarItem> _navBarsItems() {
+  return [
+    PersistentBottomNavBarItem(
+      icon: Icon(CupertinoIcons.home),
+      title: "Home",
+      activeColorPrimary: CupertinoColors.activeBlue,
+      inactiveColorPrimary: CupertinoColors.systemGrey,
+    ),
+    PersistentBottomNavBarItem(
+      icon: Icon(CupertinoIcons.settings),
+      title: "Settings",
+      activeColorPrimary: CupertinoColors.activeBlue,
+      inactiveColorPrimary: CupertinoColors.systemGrey,
+    ),
+    PersistentBottomNavBarItem(
+      icon: Icon(CupertinoIcons.settings),
+      title: "Settings",
+      activeColorPrimary: CupertinoColors.activeBlue,
+      inactiveColorPrimary: CupertinoColors.systemGrey,
+    ),
+    PersistentBottomNavBarItem(
+      icon: Icon(CupertinoIcons.settings),
+      title: "Settings",
+      activeColorPrimary: CupertinoColors.activeBlue,
+      inactiveColorPrimary: CupertinoColors.systemGrey,
+    ),
+    PersistentBottomNavBarItem(
+      icon: Icon(CupertinoIcons.settings),
+      title: "Settings",
+      activeColorPrimary: CupertinoColors.activeBlue,
+      inactiveColorPrimary: CupertinoColors.systemGrey,
+    ),
+  ];
+}
 
 List<Widget> _buildScreens() {
   return [
     HomeScreen(),
+    StatisticScreen(),
+    ForumScreen(),
+    PayingScreen(),
+    ProfileScreen()
   ];
 }
